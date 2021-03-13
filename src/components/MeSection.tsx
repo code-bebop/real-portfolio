@@ -1,4 +1,4 @@
-import React, { ReactElement, useRef, useEffect } from "react";
+import React, { ReactElement, useRef, useEffect, useState } from "react";
 import styled from "styled-components";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,14 +9,16 @@ const MeSectionTextTitle = styled.div``;
 const MeSectionText = styled.div`
   width: 50%;
   height: 100%;
-  padding: 280px 0;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   ${MeSectionTextTitle} {
     & > strong {
-      margin-bottom: 80px;
       display: inline-block;
-      font-size: 36px;
-      margin-left: 65px;
+      font-size: 3.715vh;
+      margin-left: 6.707vh;
+      margin-bottom: 8.255vh;
       width: 100%;
     }
   }
@@ -24,7 +26,7 @@ const MeSectionText = styled.div`
     & > p {
       line-height: 200%;
       display: inline-block;
-      font-size: 24px;
+      font-size: 2.476vh;
       margin-left: 155px;
       width: 100%;
     }
@@ -54,26 +56,26 @@ const MeSection = (): ReactElement => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const desRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     if (sectionRef.current !== null && titleRef.current !== null) {
       gsap.to(sectionRef.current, {
         scrollTrigger: {
           trigger: sectionRef.current,
-          markers: true,
+          // markers: true,
           scrub: true,
           pin: true,
           start: "top top",
           end: () => "+=" + sectionRef.current?.offsetWidth
         },
-        xPercent: -100,
+        x: "0%",
         duration: 2
       });
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: titleRef.current,
-          markers: true,
-          toggleActions: "resume pause reset pause",
+          // markers: true,
           start: () => "+=" + 500,
           endTrigger: "html",
           end: "bottom top"

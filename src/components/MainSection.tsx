@@ -12,11 +12,11 @@ const Velcro = styled.div`
   display: flex;
   justify-items: center;
   align-items: center;
-  padding: 0 44px;
+  padding: 0 4.4rem;
   box-sizing: border-box;
   & > p {
-    font-size: 18px;
-    line-height: 27px;
+    font-size: 1.857vh;
+    line-height: 2.7rem;
     color: #fff;
   }
 `;
@@ -39,9 +39,9 @@ const MainSectionContent = styled.div`
   overflow: hidden;
   & > h1 {
     margin: 0;
-    margin-left: 75px;
+    margin-left: 7.5rem;
     padding: 0;
-    font-size: 48px;
+    font-size: 4.953vh;
     font-weight: bold;
     color: #fff;
   }
@@ -52,7 +52,8 @@ const MainSectionBlock = styled.div`
   left: 0;
   width: 100vw;
   height: 100%;
-  padding: 63px 83px;
+  padding: 6.3rem;
+  padding-top: 8.3rem;
   box-sizing: border-box;
 `;
 
@@ -62,7 +63,6 @@ const MainSection = (): ReactElement => {
   useEffect(() => {
     if (velcroRef.current?.children[0] !== undefined) {
       const tl = gsap.timeline();
-      console.log(velcroRef);
       tl.from(contentTitleRef.current, {
         xPercent: 30,
         autoAlpha: 0,
@@ -70,11 +70,18 @@ const MainSection = (): ReactElement => {
         duration: 2,
         ease: "ease-in"
       })
-        .from(velcroRef.current, {
-          width: 0,
-          padding: 0,
-          duration: 1
-        })
+        .fromTo(
+          velcroRef.current,
+          {
+            width: "0px",
+            padding: "0 0",
+            duration: 1
+          },
+          {
+            width: "20%",
+            padding: "0 4.4rem"
+          }
+        )
         .from(velcroRef.current.children[0], {
           autoAlpha: 0,
           duration: 2
