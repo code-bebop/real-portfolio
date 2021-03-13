@@ -2,14 +2,14 @@ import React, { ReactElement } from "react";
 
 import Header from "./Header";
 import MainSection from "./MainSection";
-import Me from "./Me";
+import MeSection from "./MeSection";
 
 const App = (): ReactElement => {
   return (
     <>
       <Header />
       <MainSection />
-      <Me />
+      <MeSection />
     </>
   );
 };
