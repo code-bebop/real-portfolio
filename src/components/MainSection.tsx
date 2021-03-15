@@ -1,25 +1,8 @@
 import React, { ReactElement, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { gsap } from "gsap";
+import Velcro from "./common/Velcro";
 
-const Velcro = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 20%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-items: center;
-  align-items: center;
-  padding: 0 4.4rem;
-  box-sizing: border-box;
-  & > p {
-    font-size: 1.857vh;
-    line-height: 2.7rem;
-    color: #fff;
-  }
-`;
 const ContentVideo = styled.video`
   position: absolute;
   top: 50%;
@@ -78,8 +61,9 @@ const MainSection = (): ReactElement => {
             duration: 1
           },
           {
-            width: "20%",
-            padding: "0 4.4rem"
+            width: "23.333%",
+            padding: "0 4.4rem",
+            minWidth: "276px"
           }
         )
         .from(velcroRef.current.children[0], {

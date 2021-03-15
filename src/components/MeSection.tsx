@@ -1,7 +1,8 @@
-import React, { ReactElement, useRef, useEffect, useState } from "react";
+import React, { ReactElement, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Section from "./common/Section";
 
 gsap.registerPlugin(ScrollTrigger);
 const MeSectionTextDes = styled.div``;
@@ -32,15 +33,6 @@ const MeSectionText = styled.div`
     }
   }
 `;
-const Section = styled.div`
-  background-color: #fff;
-  width: 100vw;
-  height: 100vh;
-  transform: translateX(100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 const MeSectionBlock = styled(Section)`
   padding: 63px 0;
   box-sizing: border-box;
@@ -53,29 +45,14 @@ const MeSectionBlock = styled(Section)`
 `;
 
 const MeSection = (): ReactElement => {
-  const sectionRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const desRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (sectionRef.current !== null && titleRef.current !== null) {
-      gsap.to(sectionRef.current, {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          // markers: true,
-          scrub: true,
-          pin: true,
-          start: "top top",
-          end: () => "+=" + sectionRef.current?.offsetWidth
-        },
-        x: "0%",
-        duration: 2
-      });
-
+    if (titleRef.current !== null) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: titleRef.current,
-          // markers: true,
           start: () => "+=" + 500,
           endTrigger: "html",
           end: "bottom top"
@@ -98,7 +75,7 @@ const MeSection = (): ReactElement => {
   }, []);
 
   return (
-    <MeSectionBlock ref={sectionRef}>
+    <MeSectionBlock>
       <img src="/public/img/bg_1.png" alt="나" />
       <MeSectionText>
         <MeSectionTextTitle ref={titleRef}>

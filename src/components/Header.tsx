@@ -42,7 +42,9 @@ const Header = (): ReactElement => {
         <span>code-bebop</span>
         <ul>
           <li>me</li>
-          <li>work</li>
+          <li>
+            <a href="#WorkSection">work</a>
+          </li>
           <li>contact</li>
         </ul>
       </nav>
