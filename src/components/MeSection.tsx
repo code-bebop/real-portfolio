@@ -34,8 +34,7 @@ const MeSectionText = styled.div`
   }
 `;
 const MeSectionBlock = styled(Section)`
-  padding: 63px 0;
-  box-sizing: border-box;
+  width: 100vw;
   & > img {
     width: 25%;
     height: 50%;

@@ -8,7 +8,7 @@ const HeaderBlock = styled.header`
   width: 100%;
   height: 83px;
   z-index: 1;
-  background-color: #fff;
+  background-color: transparent;
   nav {
     width: 100%;
     height: 100%;
