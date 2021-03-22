@@ -29,7 +29,6 @@ const App = (): ReactElement => {
       <Me />
       <Work />
       <Footer />
-      <Test></Test>
     </AppBlock>
   );
 };
