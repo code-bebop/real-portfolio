@@ -49,12 +49,15 @@ const MeSection = (): ReactElement => {
 
   useEffect(() => {
     if (titleRef.current !== null) {
+      const titleRect = titleRef.current.getBoundingClientRect();
+      const titleLeft = titleRect.left;
+
       const tl = gsap.timeline({
         scrollTrigger: {
+          id: "title",
           trigger: titleRef.current,
-          start: () => "+=" + 500,
-          endTrigger: "html",
-          end: "bottom top"
+          start: () => `+=${titleLeft}`,
+          end: () => `+=${titleLeft}`
         }
       });
       tl.from(titleRef.current, {

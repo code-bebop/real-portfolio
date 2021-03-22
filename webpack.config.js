@@ -9,7 +9,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist/js"),
     publicPath: "/",
-    filename: "bundle.js",
+    filename: "bundle.js"
   },
   module: {
     rules: [
@@ -44,7 +44,7 @@ module.exports = {
         test: /\.(scss|css)$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
         exclude: /node_modules/
-      },
+      }
     ]
   },
   plugins: [
@@ -52,8 +52,8 @@ module.exports = {
       template: path.resolve(__dirname, "public", "index.html")
     }),
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({ filename: "css/style.css"}),
-    new webpack.HotModuleReplacementPlugin()
+    new MiniCssExtractPlugin({ filename: "css/style.css" })
+    // new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
     port: 5000,
@@ -65,5 +65,5 @@ module.exports = {
     extensions: [".tsx", ".ts", ".jsx", ".js"]
   },
   devtool: "inline-source-map",
-  mode: "development",
+  mode: "development"
 };

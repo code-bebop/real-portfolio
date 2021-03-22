@@ -1,6 +1,11 @@
-import React, { ReactElement, useRef } from "react";
+import React, { ReactElement, useEffect, useLayoutEffect, useRef } from "react";
 import styled from "styled-components";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import Section from "./common/Section";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const WorkText = styled.div`
   font-size: 1.8rem;
@@ -40,11 +45,52 @@ const WorkSectionBlock = styled(Section)`
   transform: translateX(-1px);
 `;
 
-const WorkSection = (): ReactElement => {
+const WorkSection = ({ isResized }: { isResized: number }): ReactElement => {
   const WorkImgRef = useRef<HTMLImageElement>(null);
+  // const WorkImgTl = useRef<gsap.core.Timeline>();
+  const WorkImgTween = useRef<gsap.core.Tween>();
+  const WorkSectionRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    if (WorkImgRef.current !== null && WorkSectionRef.current !== null) {
+      if (WorkImgTween.current) {
+        ScrollTrigger.refresh();
+        WorkImgTween.current.kill();
+        ScrollTrigger.getById("WorkImg_1").kill(true);
+      }
+      const WorkImgRect = WorkImgRef.current.getBoundingClientRect();
+      const WorkImgLeft = WorkImgRect.left;
+      const WorkImgWidth = WorkImgRect.width;
+      const WorkSectionLeft = WorkSectionRef.current.offsetLeft;
+
+      console.log(WorkImgRect);
+      console.log(WorkImgLeft);
+
+      console.log(WorkSectionLeft);
+
+      WorkImgTween.current = gsap.from(WorkImgRef.current, {
+        scrollTrigger: {
+          id: "WorkImg_1",
+          trigger: WorkImgRef.current,
+          markers: true,
+          scrub: 2,
+          // start: () =>
+          //   `${
+          //     WorkSectionLeft + document.documentElement.clientHeight
+          //   }px center`,
+          start: () => "2889px center",
+          end: () => `+=${WorkImgWidth / 2}`
+        },
+        yPercent: -50
+      });
+      // .from(WorkImgRef.current, {
+      //   yPercent: -50
+      // });
+    }
+  }, [isResized]);
 
   return (
-    <WorkSectionBlock>
+    <WorkSectionBlock ref={WorkSectionRef}>
       <WorkImg
         src="/public/img/bg_2.png"
         alt="프로젝트 이미지 1"
