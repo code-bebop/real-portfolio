@@ -49,7 +49,6 @@ const Work = (): ReactElement => {
 
         workImgs.forEach(workImg => {
           gsap.from(workImg, {
-            width: "51%",
             scale: "1.2",
             duration: 1,
             scrollTrigger: {
