@@ -1,89 +1,81 @@
-import React, { ReactElement, useRef, useEffect } from "react";
+import React, { ReactElement } from "react";
 import styled from "styled-components";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Section = styled.div`
-  background-color: #fff;
-  width: 100vw;
-  height: 100vh;
-  transform: translateX(100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  & > p {
-    font-size: 100px;
-    font-weight: bold;
-  }
+const HighLightSpan = styled.span`
+  background-color: violet;
+  color: #1b350a;
+  padding: 0.5rem;
 `;
-const MeSection = styled(Section)`
-  padding: 63px 0;
-  box-sizing: border-box;
-  & > img {
-    width: 25%;
-    height: 50%;
-    object-fit: cover;
-    margin: 0 auto;
-  }
+const MeBlock = styled.div`
+  margin-top: 15rem;
+  text-align: center;
   & > div {
-    width: 50%;
-    height: 100%;
-    padding: 280px 0;
-    box-sizing: border-box;
-    & > strong {
-      margin-bottom: 80px;
-      display: inline-block;
-      font-size: 36px;
-      margin-left: 65px;
+    margin-bottom: 20rem;
+    position: relative;
+    & > img {
+      object-fit: cover;
+      margin-bottom: 5rem;
     }
-    & > p {
-      line-height: 200%;
-      display: inline-block;
-      font-size: 24px;
-      margin-left: 155px;
+    & > dl {
+      & > dt {
+        font-size: 3.6rem;
+      }
+      & > dd {
+        margin: 0;
+        font-size: 2.4rem;
+        margin-top: 0.8rem;
+      }
     }
+    &::before {
+      display: block;
+      content: "";
+      width: 70%;
+      height: 5px;
+      background-color: #fff;
+      position: absolute;
+      bottom: -10rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  & > p {
+    font-size: 3.333vw;
+    font-weight: bold;
+    line-height: 1.7;
   }
 `;
 
 const Me = (): ReactElement => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    console.log(sectionRef.current);
-    if (sectionRef.current !== null) {
-      gsap.to(sectionRef.current, {
-        xPercent: -100,
-        duration: 2,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          markers: true,
-          scrub: true,
-          pin: true,
-          start: "top top",
-          end: () => "+=" + sectionRef.current?.offsetWidth
-        }
-      });
-    }
-  }, []);
-
   return (
-    <MeSection ref={sectionRef}>
-      <img src="/public/img/bg_1.png" alt="나" />
+    <MeBlock>
       <div>
-        <strong>
-          “살아 있는 동안에 배워라.
-          <br /> 늙음이 현명함을 가져다주리라 기대하지말라.”
-        </strong>
-        <p>
-          특히 개발자로써는 항상 명심해야 할 격언이라고 생각합니다.
-          <br /> 기술은 끊임없이 발전하고 변화하기 마련입니다. <br /> 현재에
-          만족하고 멈춰선다면 뒤쳐지는 것은 당연한 일입니다.
-          <br /> 그래서 저는 <strong>“꾸준히 배우는”</strong> 개발자이고
-          싶습니다.
-        </p>
+        <img src="/public/img/me.png" alt="Me" />
+        <dl>
+          <dt>EXP</dt>
+          <dd>2016.02 ~ 2018.02 일본어학과 졸업</dd>
+          <dd>2018.03 ~ 2019.11 군 전역</dd>
+          <dd>2020.01 ~ 2020.06 퍼블리셔 국비과정 수료</dd>
+          <dd>2020.06 ~ 프론트엔드 독학</dd>
+        </dl>
       </div>
-    </MeSection>
+      <p>
+        &quot;살아있는 동안에 배워라, <br />
+        늙음이 현명함을 가져다 주리라 기대하지 말라.&quot;
+        <br />
+        <br />
+        연차가 쌓인다고 해서 자연히 실력이 늘 것이라
+        <br />
+        생각하지 않습니다. 자신의 실력에 안주하지 않고
+        <br />
+        <HighLightSpan>꾸준히 배우는</HighLightSpan>개발자 로 남는 것이
+        목표입니다.
+      </p>
+    </MeBlock>
   );
 };
 
