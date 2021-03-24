@@ -12,6 +12,13 @@ const IntroBlock = styled.div`
   p {
     font-size: 5.2vw;
     font-weight: bold;
+    line-height: 1.7;
+    white-space: nowrap;
+  }
+  img {
+    width: 13.281vw;
+    object-fit: cover;
+    transform: translateY(25%);
   }
 `;
 
@@ -46,13 +53,20 @@ const Intro = (): ReactElement => {
   return (
     <IntroBlock ref={introRef}>
       <p>
-        프론트엔드 개발자 <span>🍋</span> 풀스택을 꿈꾸는 <span>🍒</span>
+        프론트엔드 개발자{" "}
+        <img src="/public/img/intro_3.gif" alt="푸른 도시와 바다" /> 풀스택을
+        꿈꾸는
       </p>
       <p>
-        <span>🍒</span> UI/UX에 관심이 많은 <span>🍋</span> 일본어 전공
+        <span>🍒</span> UI/UX에 관심이 많은 <span>🌠</span> 부산에 사는
       </p>
-      <p>꾸준히 배우는 개발자를 목표로 하는</p>
-      <p>불꽃남자 임지웅입니다.</p>
+      <p>
+        꾸준히 배우는 개발자를 <span>☕</span> 목표로 하는
+      </p>
+      <p>
+        불꽃남자 임지웅입니다.{" "}
+        <img src="/public/img/intro_6.gif" alt="핸드드립 커피" />{" "}
+      </p>
     </IntroBlock>
   );
 };

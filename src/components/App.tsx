@@ -1,30 +1,27 @@
-import React, { ReactElement, useEffect, useRef } from "react";
+import React, { ReactElement } from "react";
 import styled from "styled-components";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Work from "./Work";
 import Footer from "./Footer";
 import Intro from "./Intro";
 import Me from "./Me";
 
-gsap.registerPlugin(ScrollTrigger);
-
-const Test = styled.div`
-  height: 100vh;
-`;
-const Header = styled.header`
+const Title = styled.h1`
   font-size: 6.4rem;
-  letter-spacing: 0.06em;
+  font-weight: normal;
+  letter-spacing: 0.1em;
   text-align: center;
   padding-top: 5rem;
+  margin: 0;
 `;
-const AppBlock = styled.div``;
+const AppBlock = styled.div`
+  min-width: 768px;
+`;
 
 const App = (): ReactElement => {
   return (
     <AppBlock>
-      <Header>code-bebop</Header>
+      <Title>code-bebop</Title>
       <Intro />
       <Me />
       <Work />

@@ -13,7 +13,7 @@ const WorkItem = styled.div<{ bgColor: string }>`
   & > section {
     flex: 1;
     text-align: center;
-    padding: 20rem 0;
+    padding: 10.416vw 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -23,10 +23,10 @@ const WorkItem = styled.div<{ bgColor: string }>`
     }
     h1 {
       font-size: 3.333vw;
-      margin-bottom: 14.5rem;
+      margin-bottom: 7.552vw;
     }
   }
-  & > img {
+  & > a {
     flex: 1;
     width: 50%;
     height: 100%;
@@ -38,10 +38,9 @@ const WorkBlock = styled.div`
 `;
 
 const Work = (): ReactElement => {
-  const workRef = useRef<HTMLDivElement>(null);
   const workImgRef = useRef<HTMLImageElement>(null);
   useEffect(() => {
-    if (workRef.current && workImgRef.current) {
+    if (workImgRef.current) {
       ScrollTrigger.config({ limitCallbacks: true });
       ScrollTrigger.refresh();
       window.addEventListener("load", () => {
@@ -53,7 +52,6 @@ const Work = (): ReactElement => {
             duration: 1,
             scrollTrigger: {
               id: "workImg",
-              markers: true,
               trigger: workImg,
               start: "top bottom",
               end: "top center",
@@ -65,43 +63,83 @@ const Work = (): ReactElement => {
     }
   }, []);
   return (
-    <WorkBlock ref={workRef}>
+    <WorkBlock>
       <WorkItem bgColor="A57052">
         <section>
           <header>React</header>
           <div>
-            <h1>책 검색 / 추천 게시판</h1>
+            <h1>
+              <a
+                href="https://github.com/code-bebop/Book-Search-App"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                책 검색 / 추천 게시판
+              </a>
+            </h1>
             <footer>Web Site</footer>
           </div>
         </section>
-        <img
-          src="/public/img/bg_2.png"
-          alt="Work_1"
-          className="workImg"
-          ref={workImgRef}
-        />
+        <a
+          href="https://github.com/code-bebop/Book-Search-App"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img
+            src="/public/img/work_1.png"
+            alt="Work_1"
+            className="workImg"
+            ref={workImgRef}
+          />
+        </a>
       </WorkItem>
       <WorkItem bgColor="383736">
         <section>
           <header>React</header>
           <div>
-            <h1>TFT 전적 검색 / 분석</h1>
+            <h1>
+              <a
+                href="https://github.com/code-bebop/MyTFT"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                TFT 전적 검색 / 분석
+              </a>
+            </h1>
             <footer>Web Site</footer>
           </div>
         </section>
-        <img src="/public/img/bg_2.png" alt="Work_1" className="workImg" />
+        <a
+          href="https://github.com/code-bebop/MyTFT"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img src="/public/img/work_2.png" alt="Work_1" className="workImg" />
+        </a>
       </WorkItem>
       <WorkItem bgColor="22586F">
         <section>
           <header>HTML, CSS, JS</header>
           <div>
             <h1>
-              아이러너 홈페이지 <br /> 클론 코딩
+              <a
+                href="https://github.com/code-bebop/Converse"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                캔버스 홈페이지 <br /> 클론 코딩
+              </a>
             </h1>
             <footer>Web Site</footer>
           </div>
         </section>
-        <img src="/public/img/bg_2.png" alt="Work_1" className="workImg" />
+        <a
+          href="https://github.com/code-bebop/Converse"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img src="/public/img/work_3.png" alt="Work_1" className="workImg" />
+        </a>
       </WorkItem>
     </WorkBlock>
   );
