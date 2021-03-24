@@ -7,9 +7,9 @@ const webpack = require("webpack");
 module.exports = {
   entry: ["./src/index.tsx"],
   output: {
-    path: path.resolve(__dirname, "dist/js"),
+    path: path.resolve(__dirname, "dist"),
     publicPath: "/",
-    filename: "bundle.js"
+    filename: "[name].js"
   },
   module: {
     rules: [
@@ -49,7 +49,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "public", "index.html")
+      template: path.resolve(__dirname, "public", "index.html"),
+      inject: "body"
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({ filename: "css/style.css" })
