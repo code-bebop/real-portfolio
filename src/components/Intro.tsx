@@ -54,7 +54,7 @@ const Intro = (): ReactElement => {
     <IntroBlock ref={introRef}>
       <p>
         프론트엔드 개발자{" "}
-        <img src="/public/img/intro_3.gif" alt="푸른 도시와 바다" /> 풀스택을
+        <img src="./public/img/intro_3.gif" alt="푸른 도시와 바다" /> 풀스택을
         꿈꾸는
       </p>
       <p>
@@ -65,7 +65,7 @@ const Intro = (): ReactElement => {
       </p>
       <p>
         불꽃남자 임지웅입니다.{" "}
-        <img src="/public/img/intro_6.gif" alt="핸드드립 커피" />{" "}
+        <img src="./public/img/intro_6.gif" alt="핸드드립 커피" />{" "}
       </p>
     </IntroBlock>
   );

@@ -25,6 +25,20 @@ const WorkItem = styled.div<{ bgColor: string }>`
       font-size: 3.333vw;
       margin-bottom: 7.552vw;
     }
+    nav {
+      display: flex;
+      flex-direction: column;
+      margin-top: 80px;
+      a {
+        color: #ffe53d;
+        font-size: 1.25vw;
+        font-weight: bold;
+        display: inline-block;
+        &:first-child {
+          margin-bottom: 20px;
+        }
+      }
+    }
   }
   & > a {
     flex: 1;
@@ -78,6 +92,22 @@ const Work = (): ReactElement => {
               </a>
             </h1>
             <footer>Web Site</footer>
+            <nav>
+              <a
+                href="https://code-bebop.github.io/Book-Search-App"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                DEMO SITE
+              </a>
+              <a
+                href="https://github.com/code-bebop/Book-Search-App"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                PROJECT
+              </a>
+            </nav>
           </div>
         </section>
         <a
@@ -86,7 +116,7 @@ const Work = (): ReactElement => {
           target="_blank"
         >
           <img
-            src="/public/img/work_1.png"
+            src="./public/img/work_1.png"
             alt="Work_1"
             className="workImg"
             ref={workImgRef}
@@ -107,6 +137,22 @@ const Work = (): ReactElement => {
               </a>
             </h1>
             <footer>Web Site</footer>
+            <nav>
+              <a
+                href="https://code-bebop.github.io/MyTFT"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                DEMO SITE
+              </a>
+              <a
+                href="https://github.com/code-bebop/MyTFT"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                PROJECT
+              </a>
+            </nav>
           </div>
         </section>
         <a
@@ -114,7 +160,7 @@ const Work = (): ReactElement => {
           rel="noopener noreferrer"
           target="_blank"
         >
-          <img src="/public/img/work_2.png" alt="Work_1" className="workImg" />
+          <img src="./public/img/work_2.png" alt="Work_1" className="workImg" />
         </a>
       </WorkItem>
       <WorkItem bgColor="22586F">
@@ -131,6 +177,22 @@ const Work = (): ReactElement => {
               </a>
             </h1>
             <footer>Web Site</footer>
+            <nav>
+              <a
+                href="http://codebebop.dothome.co.kr/converse"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                DEMO SITE
+              </a>
+              <a
+                href="https://github.com/code-bebop/Converse"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                PROJECT
+              </a>
+            </nav>
           </div>
         </section>
         <a
@@ -138,7 +200,7 @@ const Work = (): ReactElement => {
           rel="noopener noreferrer"
           target="_blank"
         >
-          <img src="/public/img/work_3.png" alt="Work_1" className="workImg" />
+          <img src="./public/img/work_3.png" alt="Work_1" className="workImg" />
         </a>
       </WorkItem>
     </WorkBlock>

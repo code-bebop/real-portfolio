@@ -54,7 +54,7 @@ const Me = (): ReactElement => {
   return (
     <MeBlock>
       <div>
-        <img src="/public/img/me.png" alt="Me" />
+        <img src="./public/img/me.png" alt="Me" />
         <dl>
           <dt>EXP</dt>
           <dd>2016.02 ~ 2018.02 일본어학과 졸업</dd>
