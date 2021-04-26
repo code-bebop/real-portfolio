@@ -45,6 +45,9 @@ const WorkItem = styled.div<{ bgColor: string }>`
     width: 50%;
     height: 100%;
     object-fit: cover;
+    img {
+      width: 100%;
+    }
   }
 `;
 const WorkBlock = styled.div`
