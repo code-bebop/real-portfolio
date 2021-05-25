@@ -47,6 +47,7 @@ const WorkItem = styled.div<{ bgColor: string }>`
     object-fit: cover;
     img {
       width: 100%;
+      height: 100%;
     }
   }
 `;

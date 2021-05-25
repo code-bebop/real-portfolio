@@ -15,7 +15,7 @@ const IntroBlock = styled.div`
     line-height: 1.7;
     white-space: nowrap;
   }
-  img {
+  video {
     width: 13.281vw;
     object-fit: cover;
     transform: translateY(25%);
@@ -54,8 +54,11 @@ const Intro = (): ReactElement => {
     <IntroBlock ref={introRef}>
       <p>
         프론트엔드 개발자{" "}
-        <img src="./public/img/intro_3.gif" alt="푸른 도시와 바다" /> 풀스택을
-        꿈꾸는
+        {/* <img src="./public/img/intro_3.gif" alt="푸른 도시와 바다" /> */}
+        <video autoPlay loop muted playsInline>
+          <source src={`./public/img/intro_1.mp4`} type="video/mp4" />
+        </video>{" "}
+        풀스택을 꿈꾸는
       </p>
       <p>
         <span>🍒</span> UI/UX에 관심이 많은 <span>🌠</span> 부산에 사는
@@ -65,7 +68,10 @@ const Intro = (): ReactElement => {
       </p>
       <p>
         불꽃남자 임지웅입니다.{" "}
-        <img src="./public/img/intro_6.gif" alt="핸드드립 커피" />{" "}
+        {/* <img src="./public/img/intro_6.gif" alt="핸드드립 커피" />{" "} */}
+        <video autoPlay loop muted playsInline>
+          <source src={`./public/img/intro_2.mp4`} type="video/mp4" />
+        </video>
       </p>
     </IntroBlock>
   );
