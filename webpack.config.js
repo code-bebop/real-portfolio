@@ -2,13 +2,13 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const webpack = require("webpack");
 
 module.exports = {
   entry: ["./src/index.tsx"],
   output: {
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/",
     filename: "[name].js"
   },
   module: {
@@ -41,6 +41,16 @@ module.exports = {
         ]
       },
       {
+        test: /\.(jpg|png|gif)$/,
+        use: {
+          loader: "file-loader",
+          options: {
+            publicPath: "./dist",
+            name: "[name].[ext]?[hash]"
+          }
+        }
+      },
+      {
         test: /\.(scss|css)$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
         exclude: /node_modules/
@@ -50,11 +60,14 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "public", "index.html"),
-      inject: "body"
+      inject: "body",
+      favicon: path.resolve(__dirname, "public", "favicon.png")
     }),
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({ filename: "css/style.css" })
-    // new webpack.HotModuleReplacementPlugin()
+    new MiniCssExtractPlugin({ filename: "css/style.css" }),
+    new CopyWebpackPlugin({
+      patterns: [{ from: "./public/img", to: "./public/img" }]
+    })
   ],
   devServer: {
     port: 5000,

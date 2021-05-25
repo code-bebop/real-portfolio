@@ -61,20 +61,22 @@ const FooterBlock = styled.footer`
 `;
 
 const Footer = (): ReactElement => {
-  const onEmailEnter = useCallback(
-    (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-      const target = e.target as HTMLAnchorElement;
-      target.innerHTML = "woonj2<br />@<br />gmail.com";
-      target.style.fontSize = "2.4rem";
-    },
+  const onFooterEnter = useCallback(
+    (message: string) =>
+      (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        const target = e.target as HTMLAnchorElement;
+        target.innerHTML = message;
+        target.style.fontSize = "2.4rem";
+      },
     []
   );
-  const onEmailLeave = useCallback(
-    (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-      const target = e.target as HTMLAnchorElement;
-      target.innerHTML = "EMAIL";
-      target.style.fontSize = "4.8rem";
-    },
+  const onFooterLeave = useCallback(
+    (message: string) =>
+      (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        const target = e.target as HTMLAnchorElement;
+        target.innerHTML = message;
+        target.style.fontSize = "4.8rem";
+      },
     []
   );
 
@@ -85,8 +87,8 @@ const Footer = (): ReactElement => {
           href="#"
           rel="noopener noreferrer"
           target="_blank"
-          onMouseEnter={onEmailEnter}
-          onMouseLeave={onEmailLeave}
+          onMouseEnter={onFooterEnter("woonj2<br />@<br />gmail.com")}
+          onMouseLeave={onFooterLeave("EMAIL")}
         >
           EMAIL
         </a>
@@ -104,7 +106,13 @@ const Footer = (): ReactElement => {
         >
           GITHUB
         </a>
-        <a href="#">#</a>
+        <a
+          href="#"
+          onMouseEnter={onFooterEnter("010-5447-1036")}
+          onMouseLeave={onFooterLeave("CONTACT")}
+        >
+          CONTACT
+        </a>
       </SocialNav>
       <FooterSite>
         <a href="#" className="footerSite">
