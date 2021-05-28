@@ -47,6 +47,10 @@ const MeBlock = styled.div`
     font-size: 3.333vw;
     font-weight: bold;
     line-height: 1.7;
+    ${({ theme }) => theme.mobile`
+      font-size: 24px;
+      line-height: 2.5;
+    `}
   }
 `;
 

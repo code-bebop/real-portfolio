@@ -14,11 +14,13 @@ const IntroBlock = styled.div`
     font-weight: bold;
     line-height: 1.7;
     white-space: nowrap;
+    ${({ theme }) => theme.mobile`font-size: 36px;`}
   }
   video {
     width: 13.281vw;
     object-fit: cover;
     transform: translateY(25%);
+    ${({ theme }) => theme.mobile`width: 24vw;`}
   }
 `;
 

@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const WorkItem = styled.div<{ bgColor: string }>`
   background-color: ${props => `#${props.bgColor}`};
-  height: 50.468vw;
+  height: 100vh;
   display: flex;
   overflow: hidden;
   & > section {
@@ -16,14 +16,16 @@ const WorkItem = styled.div<{ bgColor: string }>`
     padding: 10.416vw 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     header,
     footer {
       font-size: 1.25vw;
+      ${({ theme }) => theme.mobile`font-size: 18px;`}
     }
     h1 {
       font-size: 3.333vw;
       margin-bottom: 7.552vw;
+      ${({ theme }) => theme.mobile`font-size: 36px;`}
     }
     nav {
       display: flex;
@@ -34,6 +36,7 @@ const WorkItem = styled.div<{ bgColor: string }>`
         font-size: 1.25vw;
         font-weight: bold;
         display: inline-block;
+        ${({ theme }) => theme.mobile`font-size: 18px;`}
         &:first-child {
           margin-bottom: 20px;
         }
@@ -50,6 +53,7 @@ const WorkItem = styled.div<{ bgColor: string }>`
       height: 100%;
     }
   }
+  ${({ theme }) => theme.mobile`height: 50vh;`}
 `;
 const WorkBlock = styled.div`
   margin-top: 200px;

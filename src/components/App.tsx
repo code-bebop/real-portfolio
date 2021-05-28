@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
+import media from "../media";
 
 import Work from "./Work";
 import Footer from "./Footer";
@@ -20,13 +21,15 @@ const AppBlock = styled.div`
 
 const App = (): ReactElement => {
   return (
-    <AppBlock>
-      <Title>code-bebop</Title>
-      <Intro />
-      <Me />
-      <Work />
-      <Footer />
-    </AppBlock>
+    <ThemeProvider theme={media}>
+      <AppBlock>
+        <Title>code-bebop</Title>
+        <Intro />
+        <Me />
+        <Work />
+        <Footer />
+      </AppBlock>
+    </ThemeProvider>
   );
 };
 
