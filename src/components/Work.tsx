@@ -28,7 +28,7 @@ const WorkItem = styled.div<{ bgColor: string }>`
     nav {
       display: flex;
       flex-direction: column;
-      margin-top: 80px;
+      margin-top: 8.25vw;
       a {
         color: #ffe53d;
         font-size: 1.25vw;
@@ -59,23 +59,27 @@ const Work = (): ReactElement => {
   const workImgRef = useRef<HTMLImageElement>(null);
   useEffect(() => {
     if (workImgRef.current) {
+      const workImgs = gsap.utils.toArray<HTMLImageElement>(".workImg");
       ScrollTrigger.config({ limitCallbacks: true });
       ScrollTrigger.refresh();
+      ScrollTrigger.saveStyles(workImgs);
       window.addEventListener("load", () => {
-        const workImgs = gsap.utils.toArray<HTMLImageElement>(".workImg");
-
-        workImgs.forEach(workImg => {
-          gsap.from(workImg, {
-            scale: "1.2",
-            duration: 1,
-            scrollTrigger: {
-              id: "workImg",
-              trigger: workImg,
-              start: "top bottom",
-              end: "top center",
-              refreshPriority: 1
-            }
-          });
+        ScrollTrigger.matchMedia({
+          "(min-width:800px": () => {
+            workImgs.forEach(workImg => {
+              gsap.from(workImg, {
+                scale: "1.2",
+                duration: 1,
+                scrollTrigger: {
+                  id: "workImg",
+                  trigger: workImg,
+                  start: "top bottom",
+                  end: "top center",
+                  refreshPriority: 1
+                }
+              });
+            });
+          }
         });
       });
     }
@@ -164,7 +168,7 @@ const Work = (): ReactElement => {
           rel="noopener noreferrer"
           target="_blank"
         >
-          <img src="./public/img/work_2.png" alt="Work_1" className="workImg" />
+          <img src="./public/img/work_2.png" alt="Work_2" className="workImg" />
         </a>
       </WorkItem>
       <WorkItem bgColor="22586F">
@@ -204,7 +208,47 @@ const Work = (): ReactElement => {
           rel="noopener noreferrer"
           target="_blank"
         >
-          <img src="./public/img/work_3.png" alt="Work_1" className="workImg" />
+          <img src="./public/img/work_3.png" alt="Work_3" className="workImg" />
+        </a>
+      </WorkItem>
+      <WorkItem bgColor="A57052">
+        <section>
+          <header>HTML, CSS, JS</header>
+          <div>
+            <h1>
+              <a
+                href="https://github.com/code-bebop/Converse"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                아이러너 홈페이지 <br /> 클론 코딩
+              </a>
+            </h1>
+            <footer>Web Site</footer>
+            <nav>
+              <a
+                href="http://codebebop.dothome.co.kr/I_runner/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                DEMO SITE
+              </a>
+              <a
+                href="http://codebebop.dothome.co.kr/I_runner/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                PROJECT
+              </a>
+            </nav>
+          </div>
+        </section>
+        <a
+          href="http://codebebop.dothome.co.kr/I_runner/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img src="./public/img/work_4.png" alt="Work_4" className="workImg" />
         </a>
       </WorkItem>
     </WorkBlock>
