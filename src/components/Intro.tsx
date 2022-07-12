@@ -14,11 +14,13 @@ const IntroBlock = styled.div`
     font-weight: bold;
     line-height: 1.7;
     white-space: nowrap;
+    ${({ theme }) => theme.mobile`font-size: 36px;`}
   }
   video {
     width: 13.281vw;
     object-fit: cover;
     transform: translateY(25%);
+    ${({ theme }) => theme.mobile`width: 24vw;`}
   }
 `;
 
@@ -27,26 +29,30 @@ const Intro = (): ReactElement => {
 
   useEffect(() => {
     window.addEventListener("load", () => {
-      if (introRef.current) {
-        const introTexts = gsap.utils.toArray<HTMLParagraphElement>(
-          introRef.current.children
-        );
-        const introTop = introRef.current.offsetTop;
+      ScrollTrigger.matchMedia({
+        "(min-width: 800px)": () => {
+          if (introRef.current) {
+            const introTexts = gsap.utils.toArray<HTMLParagraphElement>(
+              introRef.current.children
+            );
+            const introTop = introRef.current.offsetTop;
 
-        introTexts.forEach((introText, index) => {
-          const pre = index % 2 ? -1 : 1;
+            introTexts.forEach((introText, index) => {
+              const pre = index % 2 ? -1 : 1;
 
-          gsap.to(introText, {
-            scrollTrigger: {
-              id: "Intro",
-              trigger: introRef.current!,
-              scrub: 2,
-              start: `-=${introTop}`
-            },
-            xPercent: (100 - index * 30) * pre
-          });
-        });
-      }
+              gsap.to(introText, {
+                scrollTrigger: {
+                  id: "Intro",
+                  trigger: introRef.current!,
+                  scrub: 2,
+                  start: `-=${introTop}`
+                },
+                xPercent: (100 - index * 30) * pre
+              });
+            });
+          }
+        }
+      });
     });
   }, []);
 
