@@ -191,7 +191,7 @@ const Work = (): ReactElement => {
             <footer>Web Site</footer>
             <nav>
               <a
-                href="http://codebebop.dothome.co.kr/converse"
+                href="http://marisa.dothome.co.kr/converse"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -221,7 +221,7 @@ const Work = (): ReactElement => {
           <div>
             <h1>
               <a
-                href="https://github.com/code-bebop/Converse"
+                href="https://github.com/code-bebop/i_Runner"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -231,14 +231,14 @@ const Work = (): ReactElement => {
             <footer>Web Site</footer>
             <nav>
               <a
-                href="http://codebebop.dothome.co.kr/I_runner/"
+                href="http://marisa.dothome.co.kr/IRunner/"
                 rel="noopener noreferrer"
                 target="_blank"
               >
                 DEMO SITE
               </a>
               <a
-                href="http://codebebop.dothome.co.kr/I_runner/"
+                href="https://github.com/code-bebop/i_Runner"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -248,11 +248,51 @@ const Work = (): ReactElement => {
           </div>
         </section>
         <a
-          href="http://codebebop.dothome.co.kr/I_runner/"
+          href="https://github.com/code-bebop/i_Runner"
           rel="noopener noreferrer"
           target="_blank"
         >
           <img src="./public/img/work_4.png" alt="Work_4" className="workImg" />
+        </a>
+      </WorkItem>
+      <WorkItem bgColor="22586F">
+        <section>
+          <header>React, TS</header>
+          <div>
+            <h1>
+              <a
+                href="https://github.com/code-bebop/lostark_character_search"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                로스트아크 캐릭터 <br /> 정보 검색
+              </a>
+            </h1>
+            <footer>Web Site</footer>
+            <nav>
+              <a
+                href="https://code-bebop.github.io/lostark_character_search/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                DEMO SITE
+              </a>
+              <a
+                href="https://github.com/code-bebop/lostark_character_search"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                PROJECT
+              </a>
+            </nav>
+          </div>
+        </section>
+        <a
+          href="https://github.com/code-bebop/lostark_character_search"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img src="./public/img/work_6.png" alt="Work_6" className="workImg" />
         </a>
       </WorkItem>
     </WorkBlock>
