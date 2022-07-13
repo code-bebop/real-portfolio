@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import { ReactElement } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import media from "../media";
 

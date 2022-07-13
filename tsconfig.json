@@ -4,22 +4,22 @@
     "target": "es5",
     "module": "es6",
     "allowJs": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "sourceMap": true,
     "outDir": "./build",
-    
+
     /* Strict Type-Checking Options */
     "strict": true,
     "noImplicitAny": false,
-    
+
     /* Module Resolution Options */
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    
+
     /* Advanced Options */
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
+    "forceConsistentCasingInFileNames": true
   },
   "include": ["./src/**/*"]
 }
