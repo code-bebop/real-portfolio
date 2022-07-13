@@ -32,7 +32,12 @@ module.exports = {
                     }
                   }
                 ],
-                "@babel/preset-react"
+                [
+                  "@babel/preset-react",
+                  {
+                    runtime: "automatic"
+                  }
+                ]
               ],
               plugins: ["babel-plugin-styled-components"]
             }
@@ -71,7 +76,6 @@ module.exports = {
   ],
   devServer: {
     port: 5000,
-    overlay: true,
     open: true,
     hot: true
   },
