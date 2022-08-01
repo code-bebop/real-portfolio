@@ -6,6 +6,7 @@ import Work from "./Work";
 import Footer from "./Footer";
 import Intro from "./Intro";
 import Me from "./Me";
+import Work2 from "./Work2";
 
 const Title = styled.h1`
   font-size: 6.4rem;
@@ -26,7 +27,7 @@ const App = (): ReactElement => {
         <Title>code-bebop</Title>
         <Intro />
         <Me />
-        <Work />
+        <Work2 />
         <Footer />
       </AppBlock>
     </ThemeProvider>
